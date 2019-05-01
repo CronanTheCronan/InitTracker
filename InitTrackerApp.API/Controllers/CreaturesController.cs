@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InitTrackerApp.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace InitTrackerApp.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CreaturesController : ControllerBase
@@ -18,6 +20,7 @@ namespace InitTrackerApp.API.Controllers
             _context = context;
 
         }
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetCreatures()
         {
@@ -26,6 +29,7 @@ namespace InitTrackerApp.API.Controllers
             return Ok(creatures);
         }
 
+        [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCreature(int id)
