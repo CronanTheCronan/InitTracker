@@ -20,6 +20,7 @@ namespace InitTrackerApp.API.Controllers
             _context = context;
 
         }
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetCreatures()
         {
@@ -28,6 +29,7 @@ namespace InitTrackerApp.API.Controllers
             return Ok(creatures);
         }
 
+        [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCreature(int id)

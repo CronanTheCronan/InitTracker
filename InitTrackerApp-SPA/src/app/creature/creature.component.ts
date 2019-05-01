@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreatureComponent implements OnInit {
   creatures: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getCreatures();
@@ -20,7 +20,7 @@ export class CreatureComponent implements OnInit {
       this.creatures = response;
     }, error => {
       console.log(error);
-    })
+    });
   }
 
 }
