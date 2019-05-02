@@ -34,7 +34,7 @@ namespace InitTrackerApp.API.Controllers
             if (await _repo.UserExists(dto.Username))
                 return BadRequest("Username already exists.");
 
-            var userToCreate = new User
+            var userToCreate = new Users
             {
                 Username = dto.Username
             };
