@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Threading.Tasks;
 using InitTrackerApp.API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,7 @@ namespace InitTrackerApp.API.Data
         {
             _context = context;
         }
-        public async Task<User> Login(string username, string password)
+        public async Task<Users> Login(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
 
@@ -25,7 +26,7 @@ namespace InitTrackerApp.API.Data
             return user;
         }
 
-        public async Task<User> Register(User user, string password)
+        public async Task<Users> Register(Users user, string password)
         {
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -60,7 +61,7 @@ namespace InitTrackerApp.API.Data
         {
             using(var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {
-                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
                 for(int i = 0; i < computedHash.Length; i++)
                 {
                     if(computedHash[i] != passwordHash[i]) return false;

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InitTrackerApp.API.Data;
 using InitTrackerApp.API.Helpers;
+using InitTrackerApp.API.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;

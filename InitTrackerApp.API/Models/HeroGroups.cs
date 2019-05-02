@@ -1,13 +1,18 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace InitTrackerApp.API.Models
 {
-    public class HeroGroups
+    public partial class HeroGroups
     {
+        public HeroGroups()
+        {
+            HeroesGroupXref = new HashSet<HeroesGroupXref>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CreatedByUser { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastModifiedDate { get; set; }
+
+        public virtual ICollection<HeroesGroupXref> HeroesGroupXref { get; set; }
     }
 }
