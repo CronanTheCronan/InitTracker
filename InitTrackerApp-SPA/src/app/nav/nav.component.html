@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-      <a class="navbar-brand" href="#">InitTracker</a>
+      <a class="navbar-brand" [routerLink]="['/home']">InitTracker</a>
 
       <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Combat</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/combat']">Combat</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Setup</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/setup']">Setup</a>
         </li>
       </ul>
     
